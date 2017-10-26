@@ -1,0 +1,12 @@
+{
+  "name": "wri-back-nodejs",
+  "version": "1.0.0",
+  "description": "back end of wri app in nodejs configured for neo4j projects",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Maxime Gasnier",
+  "license": "ISC"
+}
