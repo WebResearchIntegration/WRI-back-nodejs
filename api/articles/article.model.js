@@ -8,6 +8,7 @@ const db                 = require('seraph')({
                            }),
       nodeModelGenerator = require('seraph-model'),
       ArticleNode        = nodeModelGenerator(db, 'Article');
+      ArticleNode.setUniqueKey('name');
 
 class Article {
     constructor(objectArticle) {

@@ -7,7 +7,8 @@ const ArticleGenerator = require('./article.model').Article,
 
 
 exports.show = function(req, res) {
-    ArticleStatic.getArticleById((err, article) => {
+    console.log(req.params.id);
+    ArticleStatic.getArticleById(req.params.id, (err, article) => {
         res.send({success: "Article from database NEO4J", article: article});
     });
 }
