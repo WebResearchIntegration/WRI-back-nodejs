@@ -1,3 +1,12 @@
-const express = require('express'),
-      app     = express();
+const express    = require('express'),
+      bodyParser = require('body-parser'),
+      config     = require('./config'),
+      app        = express();
 
+const port = config.PORT;
+
+app.use(bodyParser({extended: false}));
+
+app.listen(port, () => {
+    console.log("WRI API - Available on port 3000");
+});
