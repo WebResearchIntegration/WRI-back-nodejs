@@ -1,3 +1,7 @@
+/**
+ * CONTROLLER MODULE
+ */
+
 const ArticleGenerator = require('./article.model').Article,
       ArticleStatic    = require('./article.static');
 

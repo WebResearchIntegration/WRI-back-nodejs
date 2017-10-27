@@ -1,3 +1,6 @@
+/**
+ * MODEL ORM MODULE
+ */
 const db                 = require('seraph')({
                                    server: require('../../config').DATABASE_URL,
                                    user: "neo4j",
