@@ -1,28 +1,28 @@
 
-exports.show = function() {
+exports.show = function(req, res) {
 
 }
 
-exports.create = function() {
+exports.create = function(req, res) {
     
 }
 
-exports.update = function() {
+exports.update = function(req, res) {
     
 }
 
-exports.delete = function() {
+exports.delete = function(req, res) {
     
 }
 
-exports.createRelationship = function() {
+exports.createRelationship = function(req, res) {
     
 }
 
-exports.updateRelationship = function() {
+exports.updateRelationship = function(req, res) {
     
 }
 
-exports.deleteRelationship = function() {
+exports.deleteRelationship = function(req, res) {
     
 }
