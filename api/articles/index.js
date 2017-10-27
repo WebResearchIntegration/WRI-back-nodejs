@@ -2,11 +2,13 @@ const articleRouter = require('express').Router(),
       articleController    = require('./article.controller');
 
 // [articleRouter: CRUD]
-articleRouter.get('/', articleController.show);
+articleRouter.get('/:id', articleController.show);
 articleRouter.post('/', articleController.create);
 articleRouter.put('/:id', articleController.update);
 articleRouter.delete('/:id', articleController.delete);
 // [END articleRouter: CRUD]
+
+articleRouter.get('/', articleController.getAllArticles);
 
 // [articleRouter: RELATIONSHIPS]
 articleRouter.post('/:fromId/:toId', articleController.createRelationship);
