@@ -3,7 +3,7 @@ const articleRouter = require('express').Router(),
 
 // [articleRouter: CRUD]
 articleRouter.get('/', articleController.show);
-articleRouter.post('/', articleController.sreate);
+articleRouter.post('/', articleController.create);
 articleRouter.put('/:id', articleController.update);
 articleRouter.delete('/:id', articleController.delete);
 // [END articleRouter: CRUD]
