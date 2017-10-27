@@ -7,7 +7,9 @@ const ArticleGenerator = require('./article.model').Article,
 
 
 exports.show = function(req, res) {
-    res.send(200);
+    ArticleStatic.getArticleById((err, article) => {
+        res.send({success: "Article from database NEO4J", article: article});
+    });
 }
 
 exports.create = function(req, res) {
@@ -36,7 +38,6 @@ exports.delete = function(req, res) {
 }
 
 exports.getAllArticles = function(req, res) {
-
     ArticleStatic.getAll((err, articleList) => {
         res.send({success: "List of articles", articles: articleList});
     });

@@ -14,4 +14,11 @@ exports.getAll = function(callback) {
         if(err) callback(err, null);
         if(callback) callback(null, listArticles);
     });
+};
+
+exports.getArticleById =  function(id, callback) {
+    ArticleNode.where({id: id}, (err, article) => {
+        if(err) callback(err, null);
+        if(callback) callback(null, article);
+    });
 }
