@@ -2,19 +2,19 @@
  * CONTROLLER MODULE
  */
 
-const ArticleGenerator = require('./article.model').Article,
-      ArticleStatic    = require('./article.static');
+const Article = require('./article.model').Article;
 
 
 exports.show = function(req, res) {
     console.log(req.params.id);
-    ArticleStatic.getArticleById(req.params.id, (err, article) => {
+    Article.getArticleById(req.params.id, (err, article) => {
+        if(err) res.sendStatus(404);
         res.send({success: "Article from database NEO4J", article: article});
     });
 }
 
 exports.create = function(req, res) {
-    let articleToSave = new ArticleGenerator({
+    let articleToSave = new Article({
         name: req.body.name,
         keywords: req.body.keywords,
         references: req.body.references,
@@ -39,7 +39,7 @@ exports.delete = function(req, res) {
 }
 
 exports.getAllArticles = function(req, res) {
-    ArticleStatic.getAll((err, articleList) => {
+    Article.getAll((err, articleList) => {
         res.send({success: "List of articles", articles: articleList});
     });
 }

@@ -4,7 +4,8 @@
 const db                 = require('seraph')({
                                    server: require('../../config').DATABASE_URL,
                                    user: "neo4j",
-                                   pass:"root"
+                                   pass:"root",
+                                   id: "wri_id"
                            }),
       nodeModelGenerator = require('seraph-model'),
       ArticleNode        = nodeModelGenerator(db, 'Article');
@@ -50,6 +51,20 @@ class Article {
         
         return true;
         return false;
+    }
+
+    static getAll(callback) {
+        ArticleNode.findAll({}, (err, listArticles) => {
+            if(err) callback(err, null);
+            if(callback) callback(null, listArticles);
+        });
+    };
+
+    static getArticleById(id, callback) {
+        ArticleNode.read({wri_id: id}, (err, article) => {
+            if(err) callback(err, null);
+            if(callback) callback(null, article);
+        });
     }
 }
 
