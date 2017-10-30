@@ -8,7 +8,14 @@ const db                 = require('seraph')({
                                    id: "id"
                            }),
       nodeModelGenerator = require('seraph-model'),
-      ArticleNode        = nodeModelGenerator(db, 'Article');
+      ArticleNode        = nodeModelGenerator(db, 'Article'),
+      AuthorNode         = nodeModelGenerator(db, 'Author'),
+      NoteNode           = nodeModelGenerator(db, 'Note'),
+      QuestionNode       = nodeModelGenerator(db, 'Question');
+
+      ArticleNode.compose(AuthorNode, 'authors', 'had_been_written_by');
+      ArticleNode.compose(NoteNode, 'notes', 'has_note');
+      ArticleNode.compose(ArticleNode, 'references', 'has_references');
       ArticleNode.setUniqueKey('name');
 
 class Article {
