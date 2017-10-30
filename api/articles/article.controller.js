@@ -16,7 +16,10 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
     let articleToSave = new Article({
         name: req.body.name,
+        score: req.body.score,
+        abstract: req.body.abstract,
         keywords: req.body.keywords,
+        conference: req.body.conference,
         references: req.body.references,
         summary: req.body.summary,
         authors: req.body.authors,

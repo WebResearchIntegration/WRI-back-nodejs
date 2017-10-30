@@ -14,6 +14,10 @@ const db                 = require('seraph')({
 class Article {
     constructor(objectArticle) {
         this.name = objectArticle.name;
+        this.authors = objectArticles.authors;
+        this.abstract = objectArticle.abstract;
+        this.score = objectArticle.score;
+        this.conference = objectArticle.conference;
         this.keywords = objectArticle.keywords;
         this.references = objectArticle.references;
         this.summary = objectArticle.summary;
@@ -26,6 +30,9 @@ class Article {
         if(this.nodeNeo4j === null) {
             ArticleNode.save({
                 name: this.name,
+                abstract: this.abstract,
+                score: this.score,
+                conference: this.conference,
                 authors: this.authors,
                 keywords: this.keywords,
                 references: this.references,
