@@ -64,6 +64,10 @@ class Article {
 
     }
 
+    static update(id, callback) {
+        
+    }
+
     static delete(id, callback) {
         this.getArticleById(id, (err, article) => {
             if(err) {
