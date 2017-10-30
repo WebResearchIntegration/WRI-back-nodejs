@@ -19,6 +19,7 @@ exports.create = function(req, res) {
         score: req.body.score,
         abstract: req.body.abstract,
         keywords: req.body.keywords,
+        link: req.body.link,
         conference: req.body.conference,
         notes: req.body.notes,
         references: req.body.references,
@@ -35,7 +36,11 @@ exports.create = function(req, res) {
 }
 
 exports.update = function(req, res) {
-    res.send(200);
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 exports.delete = function(req, res) {

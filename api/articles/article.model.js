@@ -24,6 +24,7 @@ class Article {
         this.writtenDate = objectArticle.writtenDate;
         this.publishedDate = objectArticle.publishedDate;
         this.notes = objectArticle.notes;
+        this.link = objectArticle.link;
         this.nodeNeo4j = null;
     }
 
@@ -40,6 +41,7 @@ class Article {
                 notes: this.notes,
                 summary: this.summary,
                 writtenDate: this.writtenDate,
+                link: this.link,
                 publishedDate: this.publishedDate
             }, (err, articleNode) => {
                 if(err) callback(err, null);
