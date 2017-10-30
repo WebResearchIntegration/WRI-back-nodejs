@@ -47,12 +47,6 @@ class Article {
 
     }
 
-    _isNodeNeo4JValid() {
-        
-        return true;
-        return false;
-    }
-
     static getAll(callback) {
         ArticleNode.findAll({}, (err, listArticles) => {
             if(err) callback(err, null);
