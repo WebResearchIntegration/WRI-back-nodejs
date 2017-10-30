@@ -20,6 +20,7 @@ exports.create = function(req, res) {
         abstract: req.body.abstract,
         keywords: req.body.keywords,
         conference: req.body.conference,
+        notes: req.body.notes,
         references: req.body.references,
         summary: req.body.summary,
         authors: req.body.authors,

@@ -23,6 +23,7 @@ class Article {
         this.summary = objectArticle.summary;
         this.writtenDate = objectArticle.writtenDate;
         this.publishedDate = objectArticle.publishedDate;
+        this.notes = objectArticle.notes;
         this.nodeNeo4j = null;
     }
 
@@ -36,6 +37,7 @@ class Article {
                 authors: this.authors,
                 keywords: this.keywords,
                 references: this.references,
+                notes: this.notes,
                 summary: this.summary,
                 writtenDate: this.writtenDate,
                 publishedDate: this.publishedDate
