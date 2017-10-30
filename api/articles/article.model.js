@@ -87,8 +87,11 @@ class Article {
 
     static getArticleById(id, callback) {
         ArticleNode.read({id: id}, (err, article) => {
-            if(err) callback(err, null);
-            if(callback) callback(null, article);
+            if(err) {
+                callback(err, null);
+            } else {
+                callback(null, article);
+            }
         });
     }
 }

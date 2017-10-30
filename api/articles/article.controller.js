@@ -7,8 +7,11 @@ const Article = require('./article.model').Article;
 exports.show = function(req, res) {
     console.log(req.params.id);
     Article.getArticleById(req.params.id, (err, article) => {
-        if(err) res.sendStatus(404);
-        res.send({success: "Article from database NEO4J", article: article});
+        if(err || !article) {
+            res.sendStatus(404);
+        } else {
+            res.send({success: "Article from database NEO4J", article: article});
+        }
     });
 }
 
