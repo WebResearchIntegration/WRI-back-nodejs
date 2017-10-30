@@ -4,7 +4,6 @@
 
 const Article = require('./article.model').Article;
 
-
 exports.show = function(req, res) {
     console.log(req.params.id);
     Article.getArticleById(req.params.id, (err, article) => {
@@ -30,21 +29,28 @@ exports.create = function(req, res) {
     });
 
     articleToSave.save((err, savedArticle) => {
-        if(err) res.send(500);
-        res.send({state: 'success', article: savedArticle});
+        if(err) {
+            console.log(err);
+            res.sendStatus(500);
+        } else {
+            res.send({state: 'success', article: savedArticle});
+        }
     });
 }
 
 exports.update = function(req, res) {
-    try {
-        
-    } catch (error) {
-        
-    }
+    res.sendStatus(200);
 }
 
 exports.delete = function(req, res) {
-    res.send(200);
+    Article.delete(req.params.id, (err, response) => {
+        if(err) {
+            console.log(err);
+            res.sendStatus(404);
+        } else {
+            res.send({success:"Node Deleted", hasBeenDeleted: true});
+        }
+    });
 }
 
 exports.getAllArticles = function(req, res) {
@@ -53,14 +59,26 @@ exports.getAllArticles = function(req, res) {
     });
 }
 
-exports.createRelationship = function(req, res) {
+exports.addAuthor = function(req, res) {
     res.send(200);
 }
 
-exports.updateRelationship = function(req, res) {
+exports.deleteAuthor = function(req, res) {
     res.send(200);
 }
 
-exports.deleteRelationship = function(req, res) {
+exports.addNote = function(req, res) {
+    res.send(200);
+}
+
+exports.deleteNote = function(req, res) {
+    res.send(200);
+}
+
+exports.addQuestion = function(req, res) {
+    res.send(200);
+}
+
+exports.deleteQuestion = function(req, res) {
     res.send(200);
 }

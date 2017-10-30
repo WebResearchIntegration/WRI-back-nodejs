@@ -5,7 +5,7 @@ const db                 = require('seraph')({
                                    server: require('../../config').DATABASE_URL,
                                    user: "neo4j",
                                    pass:"root",
-                                   id: "wri_id"
+                                   id: "id"
                            }),
       nodeModelGenerator = require('seraph-model'),
       ArticleNode        = nodeModelGenerator(db, 'Article');
@@ -14,7 +14,7 @@ const db                 = require('seraph')({
 class Article {
     constructor(objectArticle) {
         this.name = objectArticle.name;
-        this.authors = objectArticles.authors;
+        this.authors = objectArticle.authors;
         this.abstract = objectArticle.abstract;
         this.score = objectArticle.score;
         this.conference = objectArticle.conference;
@@ -51,11 +51,24 @@ class Article {
         } else {
             console.log('Else statement');
         }
-        
     }
 
     addReference() {
 
+    }
+
+    static delete(id, callback) {
+        this.getArticleById(id, (err, article) => {
+            if(err) {
+                callback(err, false);
+            } else if(article) {
+                db.delete(article, (err2) => {
+                    err2 ? callback(err2, false) : callback(null, true);
+                });
+            } else {
+                callback(new Error("Wrong Id given in param of function. Provide an existing id."), false);
+            }
+        });
     }
 
     static getAll(callback) {
@@ -66,7 +79,7 @@ class Article {
     };
 
     static getArticleById(id, callback) {
-        ArticleNode.read({wri_id: id}, (err, article) => {
+        ArticleNode.read({id: id}, (err, article) => {
             if(err) callback(err, null);
             if(callback) callback(null, article);
         });

@@ -13,10 +13,19 @@ articleRouter.delete('/:id', articleController.delete);
 
 articleRouter.get('/', articleController.getAllArticles);
 
-// [articleRouter: RELATIONSHIPS]
-articleRouter.post('/:fromId/:toId', articleController.createRelationship);
-articleRouter.put('/:fromId/:toId', articleController.updateRelationship);
-articleRouter.delete('/:fromId/:toId', articleController.deleteRelationship);
-// [END articleRouter: RELATIONSHIPS]
+// [articleRouter: Relationship Authors]
+articleRouter.post('/:fromId/author/:toId', articleController.addAuthor);
+articleRouter.delete('/:fromId/author/:toId', articleController.deleteAuthor);
+// [END articleRouter: Relationship Authors]
+
+// [articleRouter: Relationship Note]
+articleRouter.post('/:fromId/note/:toId', articleController.addNote);
+articleRouter.delete('/:fromId/note/:toId', articleController.deleteNote);
+// [END articleRouter: Relationship Note]
+
+// [articleRouter: Relationship Question]
+articleRouter.post('/:fromId/question/:toId', articleController.addQuestion);
+articleRouter.delete('/:fromId/question/:toId', articleController.deleteQuestion);
+// [END articleRouter: Relationship Question]
 
 module.exports = articleRouter;
