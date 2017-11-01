@@ -65,7 +65,25 @@ class Article {
     }
 
     static update(id, callback) {
-        
+        ArticleNode.save({
+            id: id,
+            name: this.name,
+            abstract: this.abstract,
+            score: this.score,
+            conference: this.conference,
+            authors: this.authors,
+            keywords: this.keywords,
+            references: this.references,
+            notes: this.notes,
+            summary: this.summary,
+            writtenDate: this.writtenDate,
+            link: this.link,
+            publishedDate: this.publishedDate
+        }, (err, articleNode) => {
+            if(err) callback(err, null);
+            if(callback) callback(null, articleNode)
+            this.nodeNeo4j = articleNode;
+        });
     }
 
     static delete(id, callback) {
