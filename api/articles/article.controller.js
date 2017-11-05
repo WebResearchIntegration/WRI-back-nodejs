@@ -1,6 +1,4 @@
-/**
- * CONTROLLER MODULE
- */
+/** @module articles/article.controller */
 
 const Article = require('./article.model').Article;
 
