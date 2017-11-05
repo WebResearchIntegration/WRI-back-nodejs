@@ -30,9 +30,18 @@ exports.update = function(req, res) {
 }
 
 exports.delete = function(req, res) {
+    Note.delete((err, deletedNote) => {
 
+    });
 }
 
 exports.getAllNotes = function(req, res) {
-    
+    Note.getAll((err, listOfNotes) => {
+        if(err) {
+            console.log('ERR => ', err);
+            res.send({state: false, notes: null});
+        } else {
+            res.send({state: true, notes: listOfNotes});
+        }
+    });
 } 

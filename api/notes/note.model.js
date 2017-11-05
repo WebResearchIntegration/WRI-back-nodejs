@@ -44,7 +44,17 @@ class Note {
     }
 
     static delete(id, callback) {
-
+        this.getNoteById(id, (err, note) => {
+            if(err) {
+                callback(err, false);
+            } else if(note) {
+                db.delete(note, (err2) => {
+                    err2 ? callback(err2, false) : callback(null, true);
+                });
+            } else {
+                callback(new Error("Wrong Id given in param of function. Provide an existing id."), false);
+            }
+        });
     }
 
     static getNoteById(id, callback) {
