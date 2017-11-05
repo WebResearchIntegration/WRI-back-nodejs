@@ -24,8 +24,10 @@ class Note {
             createdAt: this.createdAt
         }, (err, noteNode) => {
             if(err) callback(err, null);
-            if(callback && !err) callback(null, callback);
+            if(callback) callback(null, noteNode);
             this.nodeNeo4j = noteNode;
         });
     }
 }
+
+module.exports.Note = Note;

@@ -12,10 +12,9 @@ exports.create = function(req, res) {
     node.save((err, nodeFromDatabase) => {
         if(err) {
             console.log('ERR => ', err);
-            res.sendStatus(500);
+            res.send({state: false, nodeSaved: null});
         } else {
-            res.send({success: true, node: nodeFromDatabase});
-            console.log('Success : ' + nodeFromDatabase)
+            res.send({state: true, nodeSaved: nodeFromDatabase});
         }
     });
 }

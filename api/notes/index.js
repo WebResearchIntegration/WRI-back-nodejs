@@ -11,3 +11,5 @@ noteRouter.delete('/:id', noteController.delete);
 // [END noteRouter: CRUD]
 
 noteRouter.get('/', noteController.getAllNotes);
+
+module.exports = noteRouter;
