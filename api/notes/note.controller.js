@@ -26,7 +26,19 @@ exports.create = function(req, res) {
 }
 
 exports.update = function(req, res) {
+    let noteToUpdate = {
+        text: req.body.text,
+        createdAt: req.body.createdAt
+    };
 
+    Note.update(req.params.id, noteToUpdate ,(err, updatedNote) => {
+        if(err) {
+            console.log('ERR => ', err);
+             res.sendStatus(500);
+        } else {
+            res.send({state: true, note: updatedNote});
+        }
+    });
 }
 
 exports.delete = function(req, res) {

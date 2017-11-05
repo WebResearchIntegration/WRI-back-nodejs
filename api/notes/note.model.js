@@ -40,7 +40,14 @@ class Note {
     }
 
     static update(id, noteToUpdate, callback) {
-
+        NoteNode.save({
+            id: id,
+            text: noteToUpdate.text,
+            createdAt: noteToUpdate.createdAt
+        }, (err, noteNode) => {
+            if(err) callback(err, null);
+            if(callback) callback(null, noteNode);
+        });
     }
 
     static delete(id, callback) {
