@@ -64,21 +64,21 @@ class Article {
 
     }
 
-    static update(id, callback) {
+    static update(id, articleToUpdate, callback) {
         ArticleNode.save({
             id: id,
-            name: this.name,
-            abstract: this.abstract,
-            score: this.score,
-            conference: this.conference,
-            authors: this.authors,
-            keywords: this.keywords,
-            references: this.references,
-            notes: this.notes,
-            summary: this.summary,
-            writtenDate: this.writtenDate,
-            link: this.link,
-            publishedDate: this.publishedDate
+            name: articleToUpdate.name,
+            abstract: articleToUpdate.abstract,
+            score: articleToUpdate.score,
+            conference: articleToUpdate.conference,
+            authors: articleToUpdate.authors,
+            keywords: articleToUpdate.keywords,
+            references: articleToUpdate.references,
+            notes: articleToUpdate.notes,
+            summary: articleToUpdate.summary,
+            writtenDate: articleToUpdate.writtenDate,
+            link: articleToUpdate.link,
+            publishedDate: articleToUpdate.publishedDate
         }, (err, articleNode) => {
             if(err) callback(err, null);
             if(callback) callback(null, articleNode)
