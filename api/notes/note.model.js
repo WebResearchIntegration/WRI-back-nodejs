@@ -6,3 +6,10 @@ const db = require('seraph')({
 }),
     nodeModelGenerator = require('seraph-model'),
     NoteNode = nodeModelGenerator(db, 'Note');
+
+
+class Note {
+    constructor() {
+
+    }
+}
