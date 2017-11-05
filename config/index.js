@@ -1,6 +1,4 @@
-/**
- * CONFIG MODULE
- */
+/** @module config */
 
 let config = {};
 
