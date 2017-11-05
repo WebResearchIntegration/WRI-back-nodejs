@@ -30,8 +30,12 @@ exports.update = function(req, res) {
 }
 
 exports.delete = function(req, res) {
-    Note.delete((err, deletedNote) => {
-
+    Note.delete(req.params.id, (err, deletedNote) => {
+        if(err) {
+            res.sendStatus(404);
+        } else {
+            res.send({state: true, isNoteDeleted: deletedNote});
+        }
     });
 }
 
