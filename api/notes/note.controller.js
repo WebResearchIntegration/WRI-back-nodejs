@@ -3,7 +3,13 @@
 const Note = require('./note.model').Note;
 
 exports.show = function(req, res) {
-
+    Note.getNoteById(req.params.id, (err, noteFromDatabase) => {
+        if(err) {
+            res.sendStatus(404);
+        } else {
+            res.send({state: true, node: noteFromDatabase});
+        }
+    });
 }
 
 exports.create = function(req, res) {

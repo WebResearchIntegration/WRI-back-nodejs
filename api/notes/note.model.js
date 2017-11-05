@@ -28,6 +28,34 @@ class Note {
             this.nodeNeo4j = noteNode;
         });
     }
+
+    static getAll(callback) {
+        NoteNode.findAll({}, (err, listOfNotes) => {
+            if(err) {
+                callback(err, null);
+            } else {
+                callback(null, listOfNotes);
+            }
+        });
+    }
+
+    static update(id, noteToUpdate, callback) {
+
+    }
+
+    static delete(id, callback) {
+
+    }
+
+    static getNoteById(id, callback) {
+        NoteNode.read({id: id}, (err, note) => {
+            if(err) {
+                callback(err, null);
+            } else {
+                callback(null, note);
+            }
+        });
+    }
 }
 
 module.exports.Note = Note;
