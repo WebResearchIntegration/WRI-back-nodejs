@@ -1,6 +1,5 @@
-/**
- * API ROUTES DEFINITION MODULE
- */
+/** @module articles/index */
+
 const articleRouter = require('express').Router(),
       articleController    = require('./article.controller');
 
