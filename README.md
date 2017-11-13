@@ -46,3 +46,17 @@ nodemon server.js
 ## Deploy the app
 
 [NOT YET IMPLEMENTED]
+
+
+---
+
+# API - Usage
+
+We work in an API system. In this API no need to use a token or auth service. You can directly use the API.
+Here are the routes you can work with:
+
+1. ARTICLES
+    1. Relationships
+1. NOTES
+1. QUESTIONS
+1. AUTHORS
