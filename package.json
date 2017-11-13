@@ -1,12 +1,20 @@
 {
   "name": "wri-back-nodejs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "back end of wri app in nodejs configured for neo4j projects",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "Maxime Gasnier",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "moment": "^2.19.1",
+    "seraph": "^0.15.2",
+    "seraph-model": "^0.10.1"
+  }
 }
