@@ -7,6 +7,7 @@ const express    = require('express'),
 const port = config.PORT;
 
 app.use(bodyParser({extended: false}));
+app.use(cors());
 
 require('./routes')(app);
 
