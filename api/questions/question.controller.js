@@ -37,7 +37,6 @@ exports.update = function(req, res) {
 
     Question.update(req.params.id, questionToUpdate ,(err, updatedQuestion) => {
         if(err) {
-            console.log('ERR => ', err);
              res.sendStatus(500);
         } else {
             res.send({state: true, question: updatedQuestion});
