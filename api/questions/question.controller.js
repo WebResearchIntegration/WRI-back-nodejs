@@ -20,7 +20,6 @@ exports.create = function(req, res) {
     
     node.save((err, nodeFromDatabase) => {
         if(err) {
-            console.log('ERR => ', err);
             res.send({state: false, nodeSaved: null});
         } else {
             res.send({state: true, nodeSaved: nodeFromDatabase});
