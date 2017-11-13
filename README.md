@@ -130,3 +130,5 @@ Inside the **Neo4j** database, it's possible to play with articles data via the 
 
 ### Modify an existing article
 **[PUT]:** `/api/article/<id>` will modify an existing article with the value you give to update data.
+
+To modify an object you must send the object with id to identify and modify the selected node. In fact you don't need to send all characters just the one you want to edit.
