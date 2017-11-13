@@ -38,7 +38,7 @@ sudo npm instlal -g nodemon
 And next to launch the program:
 
 ```shell
-nodemon server.js
+npm run start
 ```
 
 **Now the app is available on port http://localhost:3000.**
@@ -56,7 +56,6 @@ We work in an API system. In this API no need to use a token or auth service. Yo
 Here are the routes you can work with:
 
 1. ARTICLES
-    1. Relationships
 1. NOTES
 1. QUESTIONS
 1. AUTHORS
