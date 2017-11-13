@@ -133,21 +133,42 @@ Inside the **Neo4j** database, it's possible to play with articles data via the 
 
 To modify an object you must send the object with id to identify and modify the selected node. In fact you don't need to send all characters just the one you want to edit.
 
+### Delete an article by id
+**[DELETE]:** `/api/article/<id>` will delete an article thanks to the provided id. If doesn't exist will send **404**.
+
 ---
 
 ## NOTES
 
 Inside the **Neo4j** database, it's possible to play with notes data via the API provided.
 
-### Get Note by id
+### Get note by id
+**[GET]:** `/api/note/<id>` will get a note via the corresponding id. If does not find the id, will send a **404**.
 
 ### Get all notes
+**[GET]:** `/api/note/<id>` will get all notes. Returns an array that contains all notes from the neo4j database.
 
-### Create new notes
+### Create new note
+**[POST]:** `/api/note/<id>` will create a new note with right fields. Will return the corresponding note, otherwise return **500**.
+
+```json
+{
+  "text":"First Note to add for test"
+}
+```
 
 ### Modify note by id
+**[PUT]:** `/api/note/<id>` will modify a note according to the corresponding id. In order to modify the element you must specify the id inside the route AND inside the body of the request. 
+
+```json
+{
+  "id":34
+  "text":"First Note to add for test"
+}
+```
 
 ### Delete note by id
+**[DELETE]:** `/api/note/<id>` will delete a node with it corresponding id. otherwise will send a **404**.
 
 ---
 
@@ -156,11 +177,16 @@ Inside the **Neo4j** database, it's possible to play with notes data via the API
 Inside the **Neo4j** database, it's possible to play with questions data via the API provided.
 
 ### Get question by id
+**[GET]:** `/api/question/<id>`
 
 ### Get all questions
+**[GET]:** `/api/question/<id>`
 
 ### Create new Question
+**[POST]:** `/api/question/<id>`
 
 ### Modify question by id
+**[PUT]:** `/api/question/<id>`
 
 ### Delete question by id
+**[DELETE]:** `/api/question/<id>`
