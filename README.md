@@ -177,16 +177,24 @@ Inside the **Neo4j** database, it's possible to play with notes data via the API
 Inside the **Neo4j** database, it's possible to play with questions data via the API provided.
 
 ### Get question by id
-**[GET]:** `/api/question/<id>`
+**[GET]:** `/api/question/<id>` will get a question according that we provide the right id. Otherwise return a 404.
 
 ### Get all questions
-**[GET]:** `/api/question/<id>`
+**[GET]:** `/api/question/` will get all questions inside the database. Will return an array or a **500** if error does exist.
 
 ### Create new Question
-**[POST]:** `/api/question/<id>`
+**[POST]:** `/api/question/` will create a new question inside the database. If err, return **500**.
 
+```json
+{
+    "answer": "Un troupeau de vitres",
+    "problematic": "Qu'est-ce qui court dans un pré et qui est transparent ?",
+    "id": 24
+}
+
+```
 ### Modify question by id
-**[PUT]:** `/api/question/<id>`
+**[PUT]:** `/api/question/<id>` will modify a question by giving the right id. if not found question will be ignored.
 
 ### Delete question by id
-**[DELETE]:** `/api/question/<id>`
+**[DELETE]:** `/api/question/<id>` will delete the question by the corresponding id.
