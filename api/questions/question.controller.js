@@ -56,7 +56,7 @@ exports.delete = function(req, res) {
 }
 
 exports.getAllQuestions = function(req, res) {
-    Question.getAll((err, listOfQuestion) => {
+    Question.getAll((err, listOfQuestions) => {
         if(err) {
             console.log('ERR => ', err);
             res.send({state: false, questions: null});
