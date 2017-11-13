@@ -48,7 +48,7 @@ exports.delete = function(req, res) {
         if(err) {
             res.sendStatus(404);
         } else {
-            res.send({state: true, isQuestionDeleted: deletedQuestion});
+            res.sendStatus(200).json({state: true, isQuestionDeleted: deletedQuestion});
         }
     });
 }
