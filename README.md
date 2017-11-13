@@ -60,3 +60,73 @@ Here are the routes you can work with:
 1. NOTES
 1. QUESTIONS
 1. AUTHORS
+
+---
+
+## ARTICLES
+
+Inside the **Neo4j** database, it's possible to play with articles data via the API provided.
+
+### Get Article By Id
+**[GET]:** `/api/article/<id>` will get one article from the database with the provided id. If not, will throw a **404**.
+
+### Get all articles
+**[GET]:** `/api/article/` Will get all articles inside the database, will give back an array or an error.
+
+### Create new article
+**[POST]:** `/api/article/` will create a new article inside the neo4j database.
+
+**OBJECT TEMPLATE: if you have relationships id's**
+
+```json
+{
+  "name": "Le livre de la jungle",
+  "score": 4,
+  "abstract": "LOL",
+  "conference": "azerty",
+  "authors":[
+      23
+    ],
+    "keywords": ["Yo", "cacao"],
+    "references":[
+        34
+    ],
+    "notes": [
+        56 // provide the id of the note you want to add inside
+    ],
+    "summary":"GENIAAAAL",
+    "writtenDate":"2017-10-08",
+    "link":"http://3442/blah",
+    "publishedDate":"2017-45-21"
+}
+
+```
+
+**OBJECT TEMPLATE: if you DON'T have relationships id's, this will create the nodes inside the neo4j database and make relationships**
+
+```json
+{
+  "name": "Le livre de la jungle",
+  "score":4,
+  "abstract":"LOL",
+  "conference": "azerty",
+  "authors":[{
+    "name":"Marc"
+    }
+    ],
+    "keywords": ["Yo", "cacao"],
+    "references":[{
+      "name":"OKLM"
+    }],
+    "notes": [{
+      "text":"Ouais ouais"
+    }],
+      "summary":"GENIAAAAL",
+      "writtenDate":"2017-10-08",
+      "link":"http://3442/blah",
+      "publishedDate":"2017-45-21"
+}
+```
+
+### Modify an existing article
+**[PUT]:** `/api/article/<id>` will modify an existing article with the value you give to update data.
