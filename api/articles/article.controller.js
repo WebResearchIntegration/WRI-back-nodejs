@@ -8,7 +8,7 @@ exports.show = function(req, res) {
         if(err || !article) {
             res.sendStatus(404);
         } else {
-            res.send({success: "Article from database NEO4J", article: article});
+            res.send(article);
         }
     });
 }
@@ -34,7 +34,7 @@ exports.create = function(req, res) {
             console.log(err);
             res.sendStatus(500);
         } else {
-            res.send({state: 'success', article: savedArticle});
+            res.send(savedArticle);
         }
     });
 }
@@ -49,14 +49,14 @@ exports.delete = function(req, res) {
             console.log(err);
             res.sendStatus(404);
         } else {
-            res.send({success:"Node Deleted", hasBeenDeleted: true});
+            res.send(true);
         }
     });
 }
 
 exports.getAllArticles = function(req, res) {
     Article.getAll((err, articleList) => {
-        res.send({success: "List of articles", articles: articleList});
+        res.send(articleList);
     });
 }
 
