@@ -18,8 +18,8 @@ class Question {
      */
     constructor(objectQuestion) {
         this.createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
-        this.problematic = objectNote.problematic;
-        this.answer = objectNote.answer;
+        this.problematic = objectQuestion.problematic;
+        this.answer = objectQuestion.answer;
         this.nodeNeo4j = null;
     }
 
@@ -46,11 +46,11 @@ class Question {
      * @returns {array} list of questions via callback, otherwise retrieve an error
      */
     static getAll(callback) {
-        QuestionNode.findAll({}, (err, listOfNotes) => {
+        QuestionNode.findAll({}, (err, listOfQuestions) => {
             if(err) {
                 callback(err, null);
             } else {
-                callback(null, listOfNotes);
+                callback(null, listOfQuestions);
             }
         });
     }

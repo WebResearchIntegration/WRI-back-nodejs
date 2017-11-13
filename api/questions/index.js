@@ -10,6 +10,6 @@ questionRouter.put('/:id', questionController.update);
 questionRouter.delete('/:id', questionController.delete);
 // [END questionRouter: CRUD]
 
-questionRouter.get('/', questionController.getAllNotes);
+questionRouter.get('/', questionController.getAllQuestions);
 
 module.exports = questionRouter;
