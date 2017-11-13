@@ -132,3 +132,35 @@ Inside the **Neo4j** database, it's possible to play with articles data via the 
 **[PUT]:** `/api/article/<id>` will modify an existing article with the value you give to update data.
 
 To modify an object you must send the object with id to identify and modify the selected node. In fact you don't need to send all characters just the one you want to edit.
+
+---
+
+## NOTES
+
+Inside the **Neo4j** database, it's possible to play with notes data via the API provided.
+
+### Get Note by id
+
+### Get all notes
+
+### Create new notes
+
+### Modify note by id
+
+### Delete note by id
+
+---
+
+## QUESTIONS
+
+Inside the **Neo4j** database, it's possible to play with questions data via the API provided.
+
+### Get question by id
+
+### Get all questions
+
+### Create new Question
+
+### Modify question by id
+
+### Delete question by id
