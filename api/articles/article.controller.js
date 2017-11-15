@@ -45,7 +45,14 @@ exports.create = function(req, res) {
 }
 
 exports.update = function(req, res) {
-    res.sendStatus(200);
+    Article.update(req.body.id, req.body, (err, updatedValue) => {
+        console.log(updatedValue);
+        if(err) {
+            res.sendStatus(404);
+        } else {
+            res.send(updatedValue);
+        }
+    });
 }
 
 exports.delete = function(req, res) {
