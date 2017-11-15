@@ -13,7 +13,6 @@ const db                 = require('seraph')({
       ArticleNode.compose(AuthorNode, 'authors', 'had_been_written_by');
       ArticleNode.compose(NoteNode, 'notes', 'has_note');
       ArticleNode.compose(ArticleNode, 'references', 'has_references');
-      ArticleNode.setUniqueKey('name');
 
 /**
  * Class representing an article.
