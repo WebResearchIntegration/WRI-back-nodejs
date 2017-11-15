@@ -16,6 +16,11 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
     let articleToSave = new Article({
         name: req.body.name,
+        isSaved: req.body.isSaved,
+        isRead: req.body.isRead,
+        isPrinted: req.body.isPrinted,
+        problematic: req.body.problematic,
+        solution: req.body.solution,
         score: req.body.score,
         abstract: req.body.abstract,
         keywords: req.body.keywords,

@@ -27,7 +27,12 @@ class Article {
         this.authors = objectArticle.authors;
         this.abstract = objectArticle.abstract;
         this.score = objectArticle.score;
+        this.isSaved = objectArticle.isSaved;
+        this.isPrinted = objectArticle.isPrinted;
+        this.isRead = objectArticle.isRead;
         this.conference = objectArticle.conference;
+        this.problematic = objectArticle.problematic;
+        this.solution = objectArticle.solution;
         this.keywords = objectArticle.keywords;
         this.references = objectArticle.references;
         this.summary = objectArticle.summary;
@@ -48,6 +53,11 @@ class Article {
                 name: this.name,
                 abstract: this.abstract,
                 score: this.score,
+                isSaved: this.isSaved,
+                isPrinted: this.isPrinted,
+                isRead: this.isRead,
+                problematic: this.problematic,
+                solution: this.solution,
                 conference: this.conference,
                 authors: this.authors,
                 keywords: this.keywords,
