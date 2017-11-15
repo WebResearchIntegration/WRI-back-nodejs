@@ -56,7 +56,12 @@ exports.delete = function(req, res) {
 
 exports.getAllArticles = function(req, res) {
     Article.getAll((err, articleList) => {
-        res.send(articleList);
+        if(err) {
+            console.log(err);
+            res.sendStatus(500);
+        } else {
+            res.send(articleList);
+        }
     });
 }
 
