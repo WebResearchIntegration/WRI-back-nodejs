@@ -7,7 +7,7 @@ exports.show = function(req, res) {
         if(err) {
             res.sendStatus(404);
         } else {
-            res.send({state: true, node: noteFromDatabase});
+            res.send(noteFromDatabase);
         }
     });
 }
@@ -18,9 +18,9 @@ exports.create = function(req, res) {
     node.save((err, nodeFromDatabase) => {
         if(err) {
             console.log('ERR => ', err);
-            res.send({state: false, nodeSaved: null});
+            res.sendStatus(500);
         } else {
-            res.send({state: true, nodeSaved: nodeFromDatabase});
+            res.send(nodeFromDatabase);
         }
     });
 }
@@ -36,7 +36,7 @@ exports.update = function(req, res) {
             console.log('ERR => ', err);
              res.sendStatus(500);
         } else {
-            res.send({state: true, note: updatedNote});
+            res.send(updatedNote);
         }
     });
 }
@@ -46,7 +46,7 @@ exports.delete = function(req, res) {
         if(err) {
             res.sendStatus(404);
         } else {
-            res.send({state: true, isNoteDeleted: deletedNote});
+            res.send(deletedNote);
         }
     });
 }
@@ -55,9 +55,9 @@ exports.getAllNotes = function(req, res) {
     Note.getAll((err, listOfNotes) => {
         if(err) {
             console.log('ERR => ', err);
-            res.send({state: false, notes: null});
+            res.sendStatus(500);
         } else {
-            res.send({state: true, notes: listOfNotes});
+            res.send(listOfNotes);
         }
     });
 } 

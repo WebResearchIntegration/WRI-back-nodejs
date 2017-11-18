@@ -7,7 +7,7 @@ exports.show = function(req, res) {
         if(err) {
             res.sendStatus(404);
         } else {
-            res.send({state: true, node: questionFromDatabase});
+            res.send(questionFromDatabase);
         }
     });
 }
@@ -20,9 +20,9 @@ exports.create = function(req, res) {
     
     node.save((err, nodeFromDatabase) => {
         if(err) {
-            res.send({state: false, nodeSaved: null});
+            res.send(400);
         } else {
-            res.send({state: true, nodeSaved: nodeFromDatabase});
+            res.send(nodeFromDatabase);
         }
     });
 }
@@ -36,9 +36,9 @@ exports.update = function(req, res) {
 
     Question.update(req.params.id, questionToUpdate ,(err, updatedQuestion) => {
         if(err) {
-             res.sendStatus(500);
+             res.send(500);
         } else {
-            res.send({state: true, question: updatedQuestion});
+            res.send(updatedQuestion);
         }
     });
 }
@@ -46,9 +46,9 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
     Question.delete(req.params.id, (err, deletedQuestion) => {
         if(err) {
-            res.sendStatus(404);
+            res.send(404);
         } else {
-            res.sendStatus(200).json({state: true, isQuestionDeleted: deletedQuestion});
+            res.send(deletedQuestion);
         }
     });
 }
@@ -57,9 +57,9 @@ exports.getAllQuestions = function(req, res) {
     Question.getAll((err, listOfQuestions) => {
         if(err) {
             console.log('ERR => ', err);
-            res.send({state: false, questions: null});
+            res.send(500);
         } else {
-            res.send({state: true, questions: listOfQuestions});
+            res.send(listOfQuestions);
         }
     });
 }
