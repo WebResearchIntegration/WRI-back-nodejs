@@ -19,6 +19,7 @@ class Note {
     constructor(objectNote) {
         this.createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
         this.text = objectNote.text;
+        this.isDocument = object.isDocument;
         this.nodeNeo4j = null;
     }
 
@@ -30,7 +31,8 @@ class Note {
     save(callback) {
         NoteNode.save({
             text: this.text,
-            createdAt: this.createdAt
+            createdAt: this.createdAt,
+            isDocument: this.isDocument
         }, (err, noteNode) => {
             if(err) callback(err, null);
             if(callback) callback(null, noteNode);
