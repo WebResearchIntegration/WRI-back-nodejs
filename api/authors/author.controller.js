@@ -4,7 +4,7 @@ const Author = require('./author.model').Author;
 
 exports.show = function(req, res) {
     console.log(req.params.id);
-    Article.getAuthorById(req.params.id, (err, author) => {
+    Author.getAuthorById(req.params.id, (err, author) => {
         if(err || !author) {
             res.sendStatus(404);
         } else {
@@ -58,7 +58,7 @@ exports.delete = function(req, res) {
     });
 }
 
-exports.getAllAuthors = function(req, res) {
+exports.getAllauthors = function(req, res) {
     Author.getAll((err, authorList) => {
         if(err) {
             console.log(err);
