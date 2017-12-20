@@ -1,4 +1,4 @@
-/** @module articles/article.controller */
+/** @module authors/author.controller */
 
 const Author = require('./author.model').Author;
 
