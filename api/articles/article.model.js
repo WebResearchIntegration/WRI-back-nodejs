@@ -13,7 +13,6 @@ const db                 = require('seraph')({
       ArticleNode.compose(AuthorNode, 'authors', 'had_been_written_by');
       ArticleNode.compose(NoteNode, 'notes', 'has_note');
       ArticleNode.compose(ArticleNode, 'references', 'has_references');
-      ArticleNode.setUniqueKey('name');
 
 /**
  * Class representing an article.
@@ -28,7 +27,12 @@ class Article {
         this.authors = objectArticle.authors;
         this.abstract = objectArticle.abstract;
         this.score = objectArticle.score;
+        this.isSaved = objectArticle.isSaved;
+        this.isPrinted = objectArticle.isPrinted;
+        this.isRead = objectArticle.isRead;
         this.conference = objectArticle.conference;
+        this.problematic = objectArticle.problematic;
+        this.solution = objectArticle.solution;
         this.keywords = objectArticle.keywords;
         this.references = objectArticle.references;
         this.summary = objectArticle.summary;
@@ -49,6 +53,11 @@ class Article {
                 name: this.name,
                 abstract: this.abstract,
                 score: this.score,
+                isSaved: this.isSaved,
+                isPrinted: this.isPrinted,
+                isRead: this.isRead,
+                problematic: this.problematic,
+                solution: this.solution,
                 conference: this.conference,
                 authors: this.authors,
                 keywords: this.keywords,
@@ -81,6 +90,11 @@ class Article {
             abstract: articleToUpdate.abstract,
             score: articleToUpdate.score,
             conference: articleToUpdate.conference,
+            isSaved: articleToUpdate.isSaved,
+            isRead: articleToUpdate.isRead,
+            isPrinted: articleToUpdate.isPrinted,
+            problematic: articleToUpdate.problematic,
+            solution: articleToUpdate.solution,
             authors: articleToUpdate.authors,
             keywords: articleToUpdate.keywords,
             references: articleToUpdate.references,

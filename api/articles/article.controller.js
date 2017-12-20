@@ -8,7 +8,7 @@ exports.show = function(req, res) {
         if(err || !article) {
             res.sendStatus(404);
         } else {
-            res.send({success: "Article from database NEO4J", article: article});
+            res.send(article);
         }
     });
 }
@@ -16,6 +16,11 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
     let articleToSave = new Article({
         name: req.body.name,
+        isSaved: req.body.isSaved,
+        isRead: req.body.isRead,
+        isPrinted: req.body.isPrinted,
+        problematic: req.body.problematic,
+        solution: req.body.solution,
         score: req.body.score,
         abstract: req.body.abstract,
         keywords: req.body.keywords,
@@ -34,13 +39,20 @@ exports.create = function(req, res) {
             console.log(err);
             res.sendStatus(500);
         } else {
-            res.send({state: 'success', article: savedArticle});
+            res.send(savedArticle);
         }
     });
 }
 
 exports.update = function(req, res) {
-    res.sendStatus(200);
+    Article.update(req.body.id, req.body, (err, updatedValue) => {
+        console.log(updatedValue);
+        if(err) {
+            res.sendStatus(404);
+        } else {
+            res.send(updatedValue);
+        }
+    });
 }
 
 exports.delete = function(req, res) {
@@ -49,14 +61,19 @@ exports.delete = function(req, res) {
             console.log(err);
             res.sendStatus(404);
         } else {
-            res.send({success:"Node Deleted", hasBeenDeleted: true});
+            res.send(true);
         }
     });
 }
 
 exports.getAllArticles = function(req, res) {
     Article.getAll((err, articleList) => {
-        res.send({success: "List of articles", articles: articleList});
+        if(err) {
+            console.log(err);
+            res.sendStatus(500);
+        } else {
+            res.send(articleList);
+        }
     });
 }
 
