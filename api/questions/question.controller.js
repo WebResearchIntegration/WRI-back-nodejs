@@ -36,7 +36,7 @@ exports.update = function(req, res) {
         createdAt: req.body.createdAt
     };
 
-    Question.update(req.params.id, questionToUpdate ,(err, updatedQuestion) => {
+    Question.update(req.body.id, questionToUpdate ,(err, updatedQuestion) => {
         if(err) {
             console.log(err);
              res.send(500);
