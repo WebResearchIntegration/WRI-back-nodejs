@@ -20,8 +20,10 @@ exports.create = function(req, res) {
     
     node.save((err, nodeFromDatabase) => {
         if(err) {
+            console.log(err);
             res.send(400);
         } else {
+            console.log(nodeFromDatabase);
             res.send(nodeFromDatabase);
         }
     });
@@ -36,8 +38,10 @@ exports.update = function(req, res) {
 
     Question.update(req.params.id, questionToUpdate ,(err, updatedQuestion) => {
         if(err) {
+            console.log(err);
              res.send(500);
         } else {
+            console.log(updatedQuestion);
             res.send(updatedQuestion);
         }
     });
